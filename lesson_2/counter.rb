@@ -17,8 +17,9 @@ loop do
   client = server.accept
 
   request_line = client.gets
-  next if !request_line || request_line =~ /favicon/
   puts request_line
+
+  next if !request_line || request_line =~ /favicon/
 
   http_method, path, parameters = parse_request(request_line)
 
